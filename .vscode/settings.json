@@ -1,0 +1,117 @@
+{
+  // ========== НАСТРОЙКИ FORMATTER (Prettier) ==========
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+
+  // Форматтеры для конкретных языков
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Настройки Prettier
+  "prettier.singleQuote": true,
+  "prettier.semi": true,
+  "prettier.tabWidth": 2,
+  "prettier.trailingComma": "es5",
+  "prettier.printWidth": 100,
+
+  // ========== НАСТРОЙКИ ESLINT ==========
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "eslint.format.enable": false,
+
+  "cSpell.enabled": true,
+  "cSpell.language": "en,ru",
+  "cSpell.enableFiletypes": [
+    "html",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "css",
+    "scss",
+    "markdown"
+  ],
+  "cSpell.ignoreRegExpList": [
+    "/<[^>]+>/g",
+    "/&[#a-zA-Z0-9]+;/g",
+    "/\\$\\{.*?\\}/g",
+    "/[a-z]+[A-Z][a-z]+/g",
+    "/[A-Z][a-zA-Z]*/g"
+  ],
+  "cSpell.userWords": [
+    "фронтенд",
+    "бэкенд",
+    "верстка",
+    "разметка",
+    "компонент",
+    "пропсы",
+    "стейт",
+    "реакт",
+    "GSAP",
+    "вебпак",
+    "фуллстек",
+    "tap-highlight-color"
+  ],
+
+  // ========== НАСТРОЙКИ РАЗРАБОТКИ ==========
+  "files.autoSave": "onFocusChange",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": true,
+  "editor.trimAutoWhitespace": true,
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+
+  // Auto Rename Tag
+  "auto-rename-tag.activationOnLanguage": [
+    "html",
+    "xml",
+    "php",
+    "javascript",
+    "javascriptreact",
+    "typescriptreact"
+  ],
+
+  // Live Server
+  "liveServer.settings.donotVerifyTags": true,
+  "liveServer.settings.donotShowInfoMsg": true,
+
+  // GitLens
+  "gitlens.hovers.currentLine.over": "line",
+
+  // CSS Peek
+  "cssPeek.supportTags": true,
+
+  // ========== ИСПРАВЛЕНИЯ ==========
+  "json.schemaDownload.enable": false
+}
