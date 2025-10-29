@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Создание карточки напитка</title>
+<link rel="stylesheet" href="./css/style.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<form action="" class="main_form">
+<h1>Создание карточки напитка</h1>
+<div class="main_section">
+<div class="main_section_upload">
+
+  <div class="upload_section">
+<input type="file" name="" id="logo_upload" accept="image/*" hidden>
+<span class="image_span"><img src="./assets/logo.png" alt="Изображение логотипа" class="preview" id="logo_preview" ></span>
+<label class="upload_icon" for="logo_upload">Выбрать изображение логотипа..</label>
+</div>
+
+<div class="upload_section">
+<input type="file" name="" id="image_upload" accept="image/*"  hidden>
+<span class="image_span"><img src="./assets/beer_icon.svg" alt="Изображение напитка" class="preview" id="image_preview"></span>
+<label class="upload_icon" for="image_upload">Выбрать изображение напитка..</label>
+</div>
+
+</div>
+
+  <div class="description_input">
+<label for="name_of_sort" >Название сорта</label>
+<input type="text" id="name_of_sort" placeholder="Название сорта пива" required></div></div>
+<!-- <div class="upload_section">
+<input type="file" name="" id="background_upload" accept="image/*,video/*,.gif" hidden >
+<span class="image_span"><img src="" alt="Фон" class="preview" id="background_preview"></span>
+
+<label for="background_upload" class="upload_icon">Выбрать изображение фона</label>
+</div> -->
+
+<div class="description_section">
+  <div class="description_input">
+<label for="description_title">Заголовок описания</label>
+<input type="text" id="description_title" placeholder="Основная характеристика" required></div>
+  <div class="description_input">
+<label for="description_subtitle">Подзаголовок описания</label>
+<input type="text" id="description_subtitle" placeholder="Дополнительные детали" required></div>
+  <div class="description_input">
+<label for="description_p" >Описание</label>
+<textarea name="" id="description_p" placeholder="Опишите вкус, аромат, цвет и особенности этого сорта" required></textarea></div></div>
+<button id="submit_btn">Добавить напиток</button>
+</form>
+
+
+
+
+</body>
+</html>
