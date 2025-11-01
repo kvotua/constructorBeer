@@ -83,8 +83,6 @@
         left: 50%;
         transform: translateX(-50%);
         z-index: 10;
-        margin-top: 30px; /* т.к без фикс.ширины верх.отступ пропадает*/
-        /* width: 120px; */
         max-height: 120px;
         height: auto;
         display: flex;
@@ -93,9 +91,9 @@
         background: none;
       }
 
-      .logo img {
+      .logo > img {
         width: 100%;
-        height: auto;
+        height: 120px;
         object-fit: contain;
       }
 
@@ -411,7 +409,7 @@
         alt="Pumpkin Ale Logo"
       />
       <button id="editLogo" class="edit-btn">
-        <img src="./assets/edit.svg" alt="" class="img-edit-btn" />
+        <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
       </button>
     </div>
 
@@ -480,20 +478,20 @@
           </button>
           <div class="video-overlay">
             <div class="caption">THOUGHT VESSEL 01</div>
-            <button id="editCaption" class="edit-btn">
+            <button id="editCaption" class="edit-btn edit-btn-img-light ">
               <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
             </button>
             <div class="content">
               <h2 class="title-content">
                 Clarity in Silence
-                <button id="editTitleContent" class="edit-btn">
+                <button id="editTitleContent" class="edit-btn edit-btn-img-light ">
                   <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
                 </button>
               </h2>
               <p class="p-content">
                 Design emerges from emptiness. Mental clarity precedes visual
                 harmony.
-                <button id="editPContent" class="edit-btn">
+                <button id="editPContent" class="edit-btn edit-btn-img-light ">
                   <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
                 </button>
               </p>
@@ -661,6 +659,7 @@
     </div>
 
     <style>
+
       .panel-header {
         width: 100%;
         display: flex;
@@ -749,6 +748,9 @@
       #editCredits {
         top: 0;
         right: 1rem;
+      }
+      #editPlace{
+        top: 0;
       }
       #editVideo {
         right: 20px;
