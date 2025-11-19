@@ -108,51 +108,50 @@
         perspective: 800px;
       }
 
-      .header-content {
+      .header {
         grid-column: 4 / span 6;
         text-align: center;
         transform-style: preserve-3d;
-        margin-top: 60px; /* Уменьшен отступ для логотипа */
+        margin-top: 60px;
       }
 
-      .header-content > * {
+      .header > * {
         transform-style: preserve-3d;
         backface-visibility: hidden;
         transform-origin: center top;
       }
 
-      .pumpkin-illustration {
-        /* width: 100px; Уменьшен размер иллюстрации */
+      .header__illustration {
         height: 100px;
-        margin: 30px auto 1.5rem; /* Уменьшен отступ сверху */
+        margin: 30px auto 1.5rem;
         position: relative;
       }
 
-      .pumpkin-illustration > img {
+      .header__illustration > img {
         width: 100%;
         height: 100%;
         object-fit: contain;
       }
 
-      .title {
+      .header__title {
         margin-bottom: 0.5rem;
-        font-size: 2.9rem; /* Уменьшено с 3.5rem до 2.9rem (в 1.2 раза) */
-        text-transform: none; /* Убрано uppercase */
+        font-size: 2.9rem;
+        text-transform: none;
         font-family: var(--font-waldorf);
         color: var(--color-pumpkin);
-        /* line-height: 0.8; */
+
         line-height: 0.9;
         letter-spacing: -0.02em;
       }
 
-      .title::first-letter {
-        text-transform: uppercase; /* Только первая буква заглавная */
+      .header__title::first-letter {
+        text-transform: uppercase;
       }
 
       .subtitle {
         margin-bottom: 2rem;
-        font-size: 3.9rem; /* Уменьшено с 4.7rem до 3.9rem (в 1.2 раза) */
-        text-transform: none; /* Убрано uppercase */
+        font-size: 3.9rem;
+        text-transform: none;
         font-family: var(--font-waldorf);
         color: var(--color-pumpkin);
         line-height: 0.8;
@@ -160,10 +159,11 @@
       }
 
       .subtitle::first-letter {
-        text-transform: uppercase; /* Только первая буква заглавная */
+        text-transform: uppercase;
       }
 
-      .credits {
+      .header__credits,
+      .footer-content__credits {
         margin-top: 2rem;
         text-transform: uppercase;
         font-size: 0.8rem;
@@ -171,7 +171,7 @@
         grid-column: 4 / span 6;
       }
 
-      .brauerei {
+      .header__brauerei {
         font-family: 'Inter', sans-serif;
         font-weight: 300;
         font-size: 1.1rem;
@@ -180,18 +180,18 @@
         text-transform: none;
       }
 
-      .brauerei::first-letter {
+      .header__brauerei::first-letter {
         text-transform: uppercase;
       }
 
-      .kaliningrad {
+      .header__kaliningrad {
         font-family: var(--font-copperplate);
         font-size: 1rem;
         color: var(--color-pumpkin);
         text-transform: none;
       }
 
-      .kaliningrad::first-letter {
+      .header__kaliningrad::first-letter {
         text-transform: uppercase;
       }
 
@@ -200,7 +200,7 @@
         height: 300vh;
       }
 
-      .video-wrapper {
+      .scroll-container__video-wrapper {
         position: sticky;
         top: 0;
         left: 0;
@@ -262,14 +262,14 @@
         z-index: 2;
       }
 
-      .video-overlay .caption {
+      .video-overlay__caption {
         font-family: var(--font-mono);
         font-size: 0.8rem;
         margin-bottom: 1.5rem;
         transform: translateY(30px);
         text-transform: uppercase;
         letter-spacing: 0.05em;
-        /* position: absolute; */
+
         top: 2rem;
         left: 0;
         width: 100%;
@@ -277,7 +277,7 @@
         text-align: center;
       }
 
-      .video-overlay .content {
+      .video-overlay__content {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -315,13 +315,13 @@
         margin: 0 auto;
       }
 
-      .quote {
+      .footer-content__quote {
         margin-bottom: 3rem;
         line-height: 1.8;
         grid-column: 4 / span 6;
       }
 
-      .quote p {
+      .footer-content__quote p {
         margin-bottom: 1.5rem;
         max-width: 32ch;
         margin-left: auto;
@@ -349,7 +349,7 @@
         object-fit: cover;
       }
 
-      .contact-btn {
+      .mountain-footer__contact-btn {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -365,7 +365,7 @@
         pointer-events: auto;
       }
 
-      .contact-btn .label {
+      .mountain-footer__label {
         font-family: var(--font-mono);
         font-size: 0.75rem;
         text-transform: uppercase;
@@ -373,30 +373,30 @@
         letter-spacing: 0.05em;
       }
 
-      .contact-btn .email-container {
+      .mountain-footer__email-container {
         position: relative;
         display: inline-block;
       }
 
-      .contact-btn .email {
+      .email-container__email {
         font-size: 0.9rem;
         padding: 0 0.6em;
         position: relative;
         display: inline-block;
       }
 
-      .contact-btn .left-bracket,
-      .contact-btn .right-bracket {
+      .email-container__left-bracket,
+      .email-container__right-bracket {
         transition:
           opacity 0.3s var(--transition-elastic),
           transform 0.3s var(--transition-elastic);
       }
 
-      .contact-btn .left-bracket {
+      .email-container__left-bracket {
         margin-right: 3px;
       }
 
-      .contact-btn .right-bracket {
+      .email-container__right-bracket {
         margin-left: 3px;
         transition-delay: 0.15s;
       }
@@ -404,56 +404,44 @@
   </head>
   <body>
     <div class="logo">
-      <img
-        src="https://i.ibb.co/DDxZ2Xq2/photo-2024-11-23-20-27-20.jpg"
-        alt="Pumpkin Ale Logo"
-      />
-      <button id="editLogo" class="edit-btn">
-        <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
-      </button>
+      <img src="./assets/ponarth.svg" alt="Pumpkin Ale Logo" />
     </div>
 
     <div class="container">
-      <div class="header-content">
-        <div class="pumpkin-illustration">
+      <div class="header">
+        <div class="header__illustration">
           <img
             src="https://i.ibb.co/MkxRwWdC/photo-2024-11-23-20-27-20.jpg"
             alt="Pumpkin Illustration"
           />
           <button id="editPic" class="edit-btn">
-            <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+            <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
           </button>
         </div>
-        <!-- <h1 class="title">
-          Pumpkin<button id="editTitle" class="edit-btn">
-            <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
-          </button>
-        </h1>
-
-        <h2 class="subtitle">
-          Ale
-          <button id="editSubtitle" class="edit-btn">
-            <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
-          </button>
-        </h2> -->
-
-        <h1 class="title">
+        <button
+          id="togglePic"
+          class="toggle-btn-img"
+          title="Скрыть изображение"
+        >
+          &mdash;
+        </button>
+        <h1 class="header__title">
           Pumpkin <br />
           Ale<button id="editTitle" class="edit-btn">
-            <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+            <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
           </button>
         </h1>
-        <div class="credits">
-          <p class="brauerei">
+        <div class="header__credits">
+          <p class="header__brauerei">
             Brauerei Ponarth
             <button id="editPlace" class="edit-btn">
-              <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+              <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
             </button>
           </p>
-          <p class="kaliningrad">
+          <p class="header__kaliningrad">
             Калининград
             <button id="editCity" class="edit-btn">
-              <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+              <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
             </button>
           </p>
         </div>
@@ -461,7 +449,7 @@
     </div>
 
     <div class="scroll-container">
-      <div class="video-wrapper">
+      <div class="scroll-container__video-wrapper">
         <div id="video-container">
           <video id="video" autoplay loop muted playsinline>
             <source
@@ -473,26 +461,29 @@
             <img
               src="./assets/edit.svg"
               alt=""
-              class="edit-btn-img edit-btn-img-light"
+              class="edit-btn__img edit-btn__img_light"
             />
           </button>
           <div class="video-overlay">
-            <div class="caption">THOUGHT VESSEL 01</div>
-            <button id="editCaption" class="edit-btn edit-btn-img-light ">
-              <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+            <div class="video-overlay__caption">THOUGHT VESSEL 01</div>
+            <button id="editCaption" class="edit-btn edit-btn__img_light">
+              <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
             </button>
-            <div class="content">
-              <h2 class="title-content">
+            <div class="video-overlay__content">
+              <h2 class="video-overlay__title">
                 Clarity in Silence
-                <button id="editTitleContent" class="edit-btn edit-btn-img-light ">
-                  <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+                <button
+                  id="editTitleContent"
+                  class="edit-btn edit-btn__img_light"
+                >
+                  <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
                 </button>
               </h2>
-              <p class="p-content">
+              <p class="video-overlay__text">
                 Design emerges from emptiness. Mental clarity precedes visual
                 harmony.
-                <button id="editPContent" class="edit-btn edit-btn-img-light ">
-                  <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+                <button id="editPContent" class="edit-btn edit-btn__img_light">
+                  <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
                 </button>
               </p>
             </div>
@@ -504,25 +495,7 @@
     <div class="spacer"></div>
 
     <div class="footer-content grid">
-      <!-- <div class="quote">
-        <p class="quote-part-a">
-          Trapped in the wisdom of certainty. Shuttered vision through the lens
-          of anxiety. Judgment of the incomplete. Shadows of expectation. Urge
-          of control even when creativity should be freed.
-          <button id="editQuoteA" class="edit-btn">
-            <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
-          </button>
-        </p>
-        <p class="quote-part-b">
-          Quiet the mind, and you will hear creativity speak. Feel the
-          inspiration flowing through moments of stillness. Nourish your
-          authentic expression by first emptying your cup.
-          <button id="editQuoteB" class="edit-btn">
-            <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
-          </button>
-        </p>
-      </div> -->
-      <div class="quote">
+      <div class="footer-content__quote">
         <p>
           Trapped in the wisdom of certainty. Shuttered vision through the lens
           of anxiety. Judgment of the incomplete. Shadows of expectation. Urge
@@ -532,18 +505,18 @@
           inspiration flowing through moments of stillness. Nourish your
           authentic expression by first emptying your cup.
           <button id="editQuote" class="edit-btn">
-            <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+            <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
           </button>
         </p>
       </div>
       <div class="divider"></div>
-      <div class="credits">
-        <p class="credit">
+      <div class="footer-content__credits">
+        <p class="footer-content__credit">
           A Way of Being
           <br />
           Through Mindful Creation
           <button id="editCredits" class="edit-btn">
-            <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+            <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
           </button>
         </p>
       </div>
@@ -556,50 +529,50 @@
           type="video/mp4"
         />
       </video>
-      <button id="editFooterBg" class="edit-btn edit-btn-img-light">
-        <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+      <button id="editFooterBg" class="edit-btn edit-btn__img_light">
+        <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
       </button>
-      <div class="contact-btn">
-        <div class="label">
+      <div class="mountain-footer__contact-btn">
+        <div class="mountain-footer__label">
           +Get In Touch
           <button id="editFooterLabel" class="edit-btn">
             <img
               src="./assets/edit.svg"
               alt=""
-              class="edit-btn-img edit-btn-img-light"
+              class="edit-btn__img edit-btn__img_light"
             />
           </button>
         </div>
-        <div class="email-container">
-          <span class="left-bracket">[</span>
-          <span class="email" id="email-copy"
+        <div class="mountain-footer__email-container email-container">
+          <span class="email-container__left-bracket">[</span>
+          <span class="email-container__email" id="email-copy"
             >hi@filip.fyi
-            <button id="editFooterEmail" class="edit-btn edit-btn-img-light">
+            <button id="editFooterEmail" class="edit-btn edit-btn__img_light">
               <img
                 src="./assets/edit.svg"
                 alt=""
-                class="edit-btn-img"
+                class="edit-btn__img"
               /></button
           ></span>
-          <span class="right-bracket">]</span>
+          <span class="email-container__right-bracket">]</span>
         </div>
       </div>
     </div>
     <button id="editBackground" class="edit-btn edit-btn-bg">
-      <img src="./assets/edit.svg" alt="" class="edit-btn-img" />
+      <img src="./assets/edit.svg" alt="" class="edit-btn__img" />
     </button>
     <div id="colorPanel" class="color-panel">
-      <div class="panel-header">
+      <div class="color-panel__panel-header panel-header">
         <span>Выбрать цвет фона</span>
-        <button class="color-panel-close panel-close">&times;</button>
+        <button class="color-panel__panel-close panel-close">&times;</button>
       </div>
 
-      <div class="panel-choose panel-choose-color">
-        <div class="color-panel-bg">
+      <div class="color-panel__panel-choose panel-choose">
+        <div class="color-panel__bg">
           <input
             type="color"
             id="panelColorInput"
-            class="panel-input panel-color-input"
+            class="color-panel__panel-input panel-input"
           />
           <button id="resetColorBg">Сбросить</button>
         </div>
@@ -608,58 +581,45 @@
           <input
             type="color"
             id="panelColorElementsInput"
-            class="panel-input panel-color-input"
+            class="color-panel__panel-input panel-input"
           />
 
           <button id="resetColorElements">Сбросить</button>
         </div>
       </div>
     </div>
-    <!-- <div id="mediaPanel" class="media-panel">
-      <div class="panel-header">
-        <span>Вставьте ссылку на медиа</span>
-        <button class="panel-close">&times;</button>
-      </div>
-      <input
-        type="url"
-        id="panelUrlInput"
-        placeholder="https://..."
-        class="panel-input"
-      />
-      <div class="panel-actions">
-        <button id="panelConfirm" class="panel-btn confirm">Применить</button>
-      </div>
-    </div> -->
+
     <div id="mediaPanel" class="media-panel">
-      <div class="panel-header">
+      <div class="media-panel__panel-header panel-header">
         <span>Выбрать медиа</span>
-        <button class="media-panel-close panel-close">&times;</button>
+        <button class="media-panel__panel-close panel-close">&times;</button>
       </div>
-      <div class="panel-choose panel-choose-url">
+      <div class="media-panel__panel-choose_url panel-choose">
         <label for="panelUrlInput">Вставьте ссылку</label>
         <input
           type="url"
           id="panelUrlInput"
           placeholder="https://..."
-          class="panel-input"
+          class="media-panel__panel-input_url panel-input"
         />
       </div>
-      <div class="panel-choose panel-choose-file">
+      <div class="media-panel__panel-choose_file panel-choose">
         <label for="panelUrlInput">Или прикрепите медиа</label>
         <input
           type="file"
           id="panelFileInput"
-          class="panel-file-input"
+          class="media-panel__panel-input_file panel-input"
           accept="image/*, video/*"
         />
       </div>
-      <div class="panel-actions">
-        <button id="panelConfirm" class="panel-btn confirm">Применить</button>
+      <div class="media-panel__panel-actions">
+        <button id="panelConfirm" class="media-panel__panel-btn">
+          Применить
+        </button>
       </div>
     </div>
 
     <style>
-
       .panel-header {
         width: 100%;
         display: flex;
@@ -673,11 +633,11 @@
       .media-panel {
         position: fixed;
         top: 50%;
-        left: 23%;
-        right: 23%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         width: 64%;
         max-width: 350px;
-        margin: 0 auto;
+
         padding: 10px;
         display: flex;
         flex-direction: column;
@@ -687,7 +647,7 @@
         background-color: rgba(185, 185, 185, 0.5);
 
         visibility: hidden;
-        z-index: 100;
+        z-index: 1000;
       }
       .color-panel {
         position: fixed;
@@ -705,13 +665,13 @@
         background-color: rgba(185, 185, 185, 0.5);
 
         visibility: hidden;
-        z-index: 100;
+        z-index: 1000;
       }
-      .panel-color-input {
+      .color-panel__panel-input {
         width: 150px;
       }
       .color-panel-elements,
-      .color-panel-bg {
+      .color-panel__bg {
         display: flex;
       }
       .panel-choose {
@@ -719,23 +679,36 @@
         flex-direction: column;
         gap: 5px;
       }
-      .edit-btn-img {
+      .edit-btn__img {
         object-fit: cover;
         width: 100%;
+        z-index: 1000;
+      }
+      .toggle-btn-img {
+        border-radius: 50%;
+        font-size: 9px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        border: none;
+        right: -33px;
+        top: 50px;
+        background-color: rgba(185, 185, 185, 0.5);
+        text-align: center;
       }
       .edit-btn {
         border-radius: 50%;
         width: 35px;
         height: 35px;
-        z-index: 30;
+        z-index: 1000;
         background: transparent;
         border: none;
         cursor: pointer;
         position: absolute;
         bottom: 0;
         display: none;
-        right: -30px;
-        bottom: -10px;
+        right: -35px;
+        top: -15px;
       }
       .edit-btn-bg {
         display: inline;
@@ -744,48 +717,97 @@
         right: 20px;
         width: 50px;
         height: 50px;
+        z-index: 1000;
       }
       #editCredits {
-        top: 0;
-        right: 1rem;
+        top: 10;
+        right: -5px;
       }
-      #editPlace{
-        top: 0;
+      #editPlace {
+        top: -20px;
+      }
+      #editCity {
+        top: 10px;
       }
       #editVideo {
-        right: 20px;
-        top: 20px;
+        right: 10px;
+        top: 10px;
       }
 
-      .edit-btn-img-light {
+      .edit-btn__img_light {
         filter: brightness(0) invert(1);
       }
       #editCaption {
-        top: 3%;
-        right: 33%;
+        top: 2%;
+        right: 15%;
       }
-      #editFooterLabel {
-        top: -25%;
-        right: -15%;
+      #editPContent {
+        right: -20px;
       }
       #editFooterBg {
         top: 0;
         right: 0;
+      }
+      #editFooterEmail {
+        right: -47px;
+        top: -10px;
+      }
+      .header__illustration.hidden {
+        display: none;
+      }
+
+      .header.image-hidden .toggle-btn-img {
+        background-color: rgba(177, 114, 43, 0.137);
+        top: -20px;
+        right: 85px;
+      }
+
+      .header.image-hidden .header__title {
+        font-size: 3.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .header.image-hidden .header__credits {
+        margin-top: 1.5rem;
       }
     </style>
 
     <script>
       const buttonEditBg = document.getElementById(`editBackground`);
       const panelColor = document.getElementById(`colorPanel`);
-      const closeBtnColor = document.querySelector(`.color-panel-close`);
+      const closeBtnColor = document.querySelector(`.color-panel__panel-close`);
       const bgColor = document.getElementById(`panelColorInput`);
       const elementColor = document.getElementById(`panelColorElementsInput`);
 
-      const titleElement = document.querySelector('.title');
-      const brauereiElement = document.querySelector('.brauerei');
-      const kaliningradElement = document.querySelector('.kaliningrad'); // const kaliningradElement = document.querySelector('.kaliningrad');
+      const titleElement = document.querySelector('.header__title');
+      const brauereiElement = document.querySelector('.header__brauerei');
+      const kaliningradElement = document.querySelector('.header__kaliningrad');
       const resetColorElements = document.getElementById(`resetColorElements`);
       const resetColorBg = document.getElementById(`resetColorBg`);
+      const logoElement = document.querySelector('.logo img');
+
+      const togglePicBtn = document.getElementById('togglePic');
+      const pumpkinIllustration = document.querySelector(
+        '.header__illustration'
+      );
+      const headerContent = document.querySelector('.header');
+      let isImageHidden = false;
+
+      togglePicBtn.addEventListener('click', () => {
+        isImageHidden = !isImageHidden;
+        if (isImageHidden == true) {
+          pumpkinIllustration.classList.add('hidden');
+          togglePicBtn.innerHTML = '+';
+          togglePicBtn.title = 'Показать изображение';
+          headerContent.classList.add('image-hidden');
+        } else {
+          pumpkinIllustration.classList.remove('hidden');
+          togglePicBtn.innerHTML = ' &mdash;';
+          togglePicBtn.title = 'Скрыть изображение';
+
+          headerContent.classList.remove('image-hidden');
+        }
+      });
 
       resetColorBg.addEventListener(`click`, () => {
         document.body.style.backgroundColor = `#f8f6f2`;
@@ -794,6 +816,9 @@
         titleElement.style.color = `#f06a12`;
         brauereiElement.style.color = `#f06a12`;
         kaliningradElement.style.color = `#f06a12`;
+        elementColor.value = '#f06a12';
+        updateSvgFilter('#f06a12');
+        logoElement.style.filter = 'url(#colorFilter)';
       });
 
       buttonEditBg.addEventListener(`click`, () => {
@@ -808,32 +833,98 @@
         titleElement.style.color = selectedColor;
         brauereiElement.style.color = selectedColor;
         kaliningradElement.style.color = selectedColor;
+        logoElement.style.filter = `url(#colorFilter)`;
+        updateSvgFilter(selectedColor);
       });
+
+      function updateSvgFilter(color) {
+        let svgFilter = document.getElementById('colorFilter');
+        if (!svgFilter) {
+          const svg = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'svg'
+          );
+          svg.style.position = 'absolute';
+          svg.style.width = '0';
+          svg.style.height = '0';
+          svgFilter = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'filter'
+          );
+          svgFilter.id = 'colorFilter';
+          svg.appendChild(svgFilter);
+          document.body.appendChild(svg);
+        }
+
+        svgFilter.innerHTML = `
+              <feFlood flood-color="${color}" result="flood"/>
+              <feComposite in="flood" in2="SourceGraphic" operator="in"/>
+          `;
+      }
+
       closeBtnColor.addEventListener(`click`, () => {
         panelColor.style.visibility = 'hidden';
       });
       bgColor.addEventListener(`change`, () => {
         let selectedColor = bgColor.value;
         document.body.style.backgroundColor = selectedColor;
+        bgColor.value = '#f8f6f2';
       });
+
+      function isElementInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+          rect.top < window.innerHeight &&
+          rect.bottom > 0 &&
+          rect.left < window.innerWidth &&
+          rect.right > 0
+        );
+      }
+
+      function updateButtonVisibility(button, element) {
+        if (
+          isElementInViewport(element) &&
+          !element.classList.contains('editing')
+        ) {
+          button.style.display = 'inline';
+        } else {
+          button.style.display = 'none';
+        }
+      }
+
+      function setupButtonVisibility(button, element) {
+        updateButtonVisibility(button, element);
+
+        window.addEventListener('scroll', () =>
+          updateButtonVisibility(button, element)
+        );
+        window.addEventListener('resize', () =>
+          updateButtonVisibility(button, element)
+        );
+      }
 
       function makeEditable(buttonSelector, elementSelector) {
         const button = document.querySelector(buttonSelector);
         const element = document.querySelector(elementSelector);
-        element.addEventListener(`mouseenter`, function makeVisibleEdit() {
-          button.style.display = `inline`;
-        });
-        element.addEventListener(`mouseleave`, function makeInvisibleEdit() {
-          button.style.display = `none`;
-        });
-        button.addEventListener(`click`, function Edit() {
+
+        setupButtonVisibility(button, element);
+
+        button.addEventListener('click', function Edit() {
           button.style.display = 'none';
           element.contentEditable = true;
+          element.style.outline = '2px solid gray';
+          element.style.outlineOffset = '2px';
           element.focus();
+          element.classList.add('editing');
         });
 
-        element.addEventListener(`blur`, function saveChange() {
+        element.addEventListener('blur', function saveChange() {
           element.contentEditable = false;
+          element.style.outline = 'none';
+          element.style.outlineOffset = 'none';
+          updateButtonVisibility(button, element);
+          element.classList.remove('editing');
+          updateButtonVisibility(button, element);
         });
       }
 
@@ -841,7 +932,7 @@
       const panelMedia = document.getElementById('mediaPanel');
       const input = document.getElementById('panelUrlInput');
       const confirmBtn = document.getElementById('panelConfirm');
-      const closeBtn = document.querySelector('.media-panel-close');
+      const closeBtn = document.querySelector('.media-panel__panel-close');
 
       function showMediaPanel(mediaElement) {
         currentMediaElement = mediaElement;
@@ -886,13 +977,7 @@
         const button = document.querySelector(buttonSelector);
         const mediaElement = document.querySelector(mediaElementSelector);
 
-        mediaElement.parentElement.addEventListener('mouseenter', () => {
-          button.style.display = 'inline';
-        });
-
-        mediaElement.parentElement.addEventListener('mouseleave', () => {
-          button.style.display = 'none';
-        });
+        setupButtonVisibility(button, mediaElement);
 
         button.addEventListener('click', () => {
           button.style.display = 'none';
@@ -901,21 +986,27 @@
       }
 
       document.addEventListener('DOMContentLoaded', function () {
-        makeEditable('#editTitle', '.title');
-        makeEditable('#editPlace', '.brauerei');
-        makeEditable('#editCity', '.kaliningrad');
-        makeEditable(`#editTitleContent`, `.title-content`);
+        elementColor.value = '#f06a12';
+        bgColor.value = '#f8f6f2';
 
-        makeEditable(`#editPContent`, `.p-content`);
-        makeEditable(`#editCaption`, `.caption`);
-        makeEditable(`#editQuote`, `.quote p`);
+        updateSvgFilter('#f06a12');
+        logoElement.style.filter = 'url(#colorFilter)';
 
-        makeEditable(`#editCredits`, `.credit`);
+        makeEditable('#editTitle', '.header__title');
+        makeEditable('#editPlace', '.header__brauerei');
+        makeEditable('#editCity', '.header__kaliningrad');
+        makeEditable(`#editTitleContent`, `.video-overlay__title`);
 
-        makeEditable(`#editFooterLabel`, `.label`);
-        makeEditable(`#editFooterEmail`, `.email`);
-        makeMediaEditable('#editLogo', '.logo img');
-        makeMediaEditable('#editPic', '.pumpkin-illustration img');
+        makeEditable(`#editPContent`, `.video-overlay__text`);
+        makeEditable(`#editCaption`, `.video-overlay__caption`);
+        makeEditable(`#editQuote`, `.footer-content__quote p`);
+
+        makeEditable(`#editCredits`, `.footer-content__credit`);
+
+        makeEditable(`#editFooterLabel`, `.mountain-footer__label`);
+        makeEditable(`#editFooterEmail`, `.email-container__email`);
+        // makeMediaEditable('#editLogo', '.logo img');
+        makeMediaEditable('#editPic', '.header__illustration img');
         makeMediaEditable('#editVideo', '#video');
         makeMediaEditable(`#editFooterBg`, `#footerVideo`);
 
@@ -959,42 +1050,44 @@
       const videoContainer = document.getElementById('video-container');
       const video = document.getElementById('video');
       const videoOverlay = document.querySelector('.video-overlay');
-      const overlayCaption = document.querySelector('.video-overlay .caption');
-      const overlayContent = document.querySelector('.video-overlay .content');
+      const overlayCaption = document.querySelector('.video-overlay__caption');
+      const overlayContent = document.querySelector(
+        '.video-overlay .video-overlay__content'
+      );
       const overlayTitle = document.querySelector('.video-overlay h2');
       const overlayTexts = document.querySelectorAll('.video-overlay p');
       const mountainFooter = document.querySelector('.mountain-footer');
       const footerVideo = document.querySelector('.mountain-footer video');
 
       // Email copy functionality
-      const emailBtn = document.querySelector('.contact-btn');
+      const emailBtn = document.querySelector('.mountain-footer__contact-btn');
       const emailElement = document.getElementById('email-copy');
       const originalText = emailElement.textContent;
       let copyTimeout = null;
 
       // Listen for clicks on the contact button
-      emailBtn.addEventListener('click', function () {
-        // Copy the email to clipboard
-        navigator.clipboard
-          .writeText(originalText)
-          .then(function () {
-            // Show success message
-            emailElement.textContent = 'email copied to clipboard';
+      // emailBtn.addEventListener('click', function () {
+      //   // Copy the email to clipboard
+      //   navigator.clipboard
+      //     .writeText(originalText)
+      //     .then(function () {
+      //       // Show success message
+      //       emailElement.textContent = 'email copied to clipboard';
 
-            // Clear any existing timeout
-            if (copyTimeout) {
-              clearTimeout(copyTimeout);
-            }
+      //       // Clear any existing timeout
+      //       if (copyTimeout) {
+      //         clearTimeout(copyTimeout);
+      //       }
 
-            // Reset text after 2 seconds
-            copyTimeout = setTimeout(function () {
-              emailElement.textContent = originalText;
-            }, 2000);
-          })
-          .catch(function (err) {
-            console.error('Could not copy text: ', err);
-          });
-      });
+      //       // Reset text after 2 seconds
+      //       copyTimeout = setTimeout(function () {
+      //         emailElement.textContent = originalText;
+      //       }, 2000);
+      //     })
+      //     .catch(function (err) {
+      //       console.error('Could not copy text: ', err);
+      //     });
+      // });
 
       // Ensure video plays
       video.play().catch(error => {
@@ -1025,7 +1118,7 @@
       });
 
       // Animate each element in the header content with a film roll effect
-      gsap.utils.toArray('.header-content > *').forEach((element, index) => {
+      gsap.utils.toArray('.header > *').forEach((element, index) => {
         heroTl.to(
           element,
           {
@@ -1129,7 +1222,7 @@
       });
 
       // Contact button animation in footer
-      gsap.to('.mountain-footer .contact-btn', {
+      gsap.to('.mountain-footer .mountain-footer__contact-btn', {
         scrollTrigger: {
           trigger: '.mountain-footer',
           start: 'top 60%',
