@@ -1,0 +1,485 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/thegoodmonolith');
+
+:root {
+  /* Colors */
+  --color-offwhite: #f8f6f2;
+  --color-offblack: #302b27;
+  --color-offblack-transparent: rgba(48, 43, 39, 0.2);
+  --color-overlay-dark: rgba(0, 0, 0, 0.4);
+  --color-pumpkin: #f06a12;
+
+  /* Fonts */
+  --font-main: 'Inter', sans-serif;
+  --font-mono: 'TheGoodMonolith', sans-serif;
+  --font-waldorf: 'Times New Roman', serif;
+  --font-copperplate: 'Copperplate Cyrillic', serif;
+
+  /* Transitions */
+  --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  overflow-x: hidden;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://img.freepik.com/premium-photo/white-dust-scratches-black-background_279525-2.jpg?w=640');
+  background-repeat: repeat;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* 12-column grid system */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  padding: 0 2rem;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+  padding: 2rem;
+  align-items: center;
+  justify-items: center;
+  perspective: 800px;
+}
+
+.header {
+  grid-column: 4 / span 6;
+  text-align: center;
+  transform-style: preserve-3d;
+  margin-top: 60px;
+}
+
+.header > * {
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform-origin: center top;
+}
+.header__credits,
+.footer-content__credits {
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-family: var(--font-mono);
+  grid-column: 4 / span 6;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+  font-size: 3.9rem;
+  text-transform: none;
+  font-family: var(--font-waldorf);
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+}
+
+.subtitle::first-letter {
+  text-transform: uppercase;
+}
+.header__illustration {
+  height: 100px;
+  margin: 30px auto 1.5rem;
+  position: relative;
+}
+
+.header__illustration > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.scroll-container {
+  position: relative;
+  height: 300vh;
+}
+
+.scroll-container__video-wrapper {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#video-container {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  transition: border-radius 0.3s ease;
+  filter: blur(0px);
+  clip-path: inset(0 0 0 0);
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  clip-path: inset(100% 0 0 0);
+  backdrop-filter: blur(8px);
+  z-index: 2;
+}
+
+#video-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.3s ease;
+  pointer-events: none;
+}
+
+.video-overlay__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  filter: blur(10px);
+  transform: scale(1.1);
+  opacity: 1;
+}
+.spacer {
+  height: 10vh;
+}
+
+.footer-content {
+  padding: 10rem 0;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.divider {
+  width: 1px;
+  height: 80px;
+  margin: 4rem auto;
+  grid-column: 6 / span 2;
+}
+
+.mountain-footer {
+  height: 50vh;
+  position: relative;
+  clip-path: inset(100% 0 0 0);
+  overflow: hidden;
+}
+
+.mountain-footer video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mountain-footer__email-container {
+  position: relative;
+  display: inline-block;
+}
+
+.email-container__left-bracket,
+.email-container__right-bracket {
+  transition:
+    opacity 0.3s var(--transition-elastic),
+    transform 0.3s var(--transition-elastic);
+}
+
+.email-container__left-bracket {
+  margin-right: 3px;
+}
+
+.email-container__right-bracket {
+  margin-left: 3px;
+  transition-delay: 0.15s;
+}
+/* Стили панелей (неизменяемые) */
+.panel-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-close {
+  width: 25px;
+  height: 25px;
+}
+
+.media-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64%;
+  max-width: 350px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid black;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.color-panel {
+  position: fixed;
+  top: 8%;
+  right: 3%;
+  width: 80%;
+  max-width: 210px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid black;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.panel-choose {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.edit-btn__img {
+  object-fit: cover;
+  width: 100%;
+  z-index: 1000;
+}
+
+.toggle-btn-img {
+  border-radius: 50%;
+  font-size: 9px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border: none;
+  right: -33px;
+  top: 50px;
+  text-align: center;
+
+  cursor: pointer;
+}
+
+.edit-btn {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  display: none;
+  right: -35px;
+  top: -15px;
+}
+
+.edit-btn-bg {
+  display: inline;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;
+}
+
+.panel-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.panel-close {
+  width: 25px;
+  height: 25px;
+}
+.media-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64%;
+  max-width: 350px;
+
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  border: 1px solid black;
+  background-color: rgba(185, 185, 185, 0.5);
+
+  visibility: hidden;
+  z-index: 1000;
+}
+.color-panel {
+  position: fixed;
+  top: 8%;
+  right: 3%;
+
+  width: 80%;
+  max-width: 210px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  border: 1px solid black;
+  background-color: rgba(185, 185, 185, 0.5);
+
+  visibility: hidden;
+  z-index: 1000;
+}
+.color-panel__panel-input {
+  width: 150px;
+}
+.color-panel-elements,
+.color-panel__bg {
+  display: flex;
+}
+.panel-choose {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.edit-btn__img {
+  object-fit: cover;
+  width: 100%;
+  z-index: 1000;
+}
+.toggle-btn-img {
+  border-radius: 50%;
+  font-size: 9px;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  border: none;
+  right: -33px;
+  top: 50px;
+  background-color: rgba(185, 185, 185, 0.5);
+  text-align: center;
+}
+.edit-btn {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  z-index: 1000;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 0;
+  display: none;
+  right: -35px;
+  top: -15px;
+}
+.edit-btn-bg {
+  display: inline;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  z-index: 1000;
+}
+#editCredits {
+  top: 10;
+  right: -5px;
+}
+#editPlace {
+  top: -20px;
+}
+#editCity {
+  top: 10px;
+}
+#editVideo {
+  right: 10px;
+  top: 10px;
+}
+
+.edit-btn__img_light {
+  filter: brightness(0) invert(1);
+}
+#editCaption {
+  top: 2%;
+  right: 15%;
+}
+#editPContent {
+  right: -20px;
+}
+#editFooterBg {
+  top: 0;
+  right: 0;
+}
+#editFooterEmail {
+  right: -47px;
+  top: -10px;
+}
+.header__illustration.hidden {
+  display: none;
+}
+
+.header.image-hidden .toggle-btn-img {
+  background-color: rgba(177, 114, 43, 0.137);
+  top: -20px;
+  right: 85px;
+}
+
+.header.image-hidden .header__title {
+  font-size: 3.5rem;
+  margin-top: 1.5rem;
+}
+
+.header.image-hidden .header__credits {
+  margin-top: 1.5rem;
+}
